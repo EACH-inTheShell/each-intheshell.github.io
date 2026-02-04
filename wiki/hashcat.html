@@ -1,1 +1,189 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Mono"><link rel="stylesheet" href="/stylesheets/style.css"><link rel="icon" href="/favicon.png"><title>[E]ACH inTheShell_</title></head><body><header><div class="nav-container"><nav><div class="logo"><b><a href="/" style="font-size: xx-large;">inTheShell_</a></b></div><div class="nav-bar"><a href="/writeups">Write‑ups</a><a href="/wiki">Enciclopédia</a><a href="/atividades">Atividades</a><a href="/membros">Membros</a><a href="/sobre">Sobre</a></div></nav></div></header><div class="subtitle"><h1><a href="/wiki">&larr; <a href="">hashcat</a></a></h1><sub>ferramenta (linux, mac, windows)</sub></div><h4 class="subtitle" id="descricao">Descrição:</h4><div class="container"><p>O <code>hashcat</code> é uma ferramenta para quebrar hashes, em seu <a href="https://hashcat.net" target="_blank"> site oficial&nearr;</a>  existe uma lista com todos os hashes suportados. A parte start do <a href="https://hashcat.net/wiki/#howtos_videos_papers_articles_etc_in_the_wild" target="_blank">site&nearr;</a> mostra ferramentas e sites auxiliares bem úteis.</p><p><a href="/wiki/hashid">hashid</a> e o <a href="/wiki/hashcat"> hashcat</a>  fazem uma boa combinação também!</p><p>Para extrair hashes de arquivos existe esse <a href="https://www.unix-ninja.com/p/A_cheat-sheet_for_password_crackers" target="_blank">cheat-sheet&nearr;</a>.</p><p>Esse <a href="https://hashcat.net/wiki/doku.php?id=example_hashes" target="_blank">site&nearr;</a> contém alguns exemplos de hashes.</p></div><h4 class="subtitle" id="uso">Uso:</h4><div class="container"><p><code> hashcat [opção...] &lt;hash&gt;</code></p>  O <code>&lt;hash&gt;</code> pode ser tanto um hash escrito quanto um arquivo.<h4 class="subtitle" id="opcoes">Opções:</h4><ul><li><b>&lt;--show&gt;</b>: mostra o resultado dos hashes registrados que conseguiram quebrar o arquivo</li><li><b>-m &lt;--hash-type&gt;</b>: escolhe o tipo de hash para o hashcat crackear</li><li><b>-p &lt;--separator&gt;</b>: escolhe um char para as listas de hashes e o arquivo de saída</li><li><b>-r &lt;--rules-file&gt;</b>: recebe um arquivo com as regras aplicadas para cada palavra da lista de palvras. Explicação de como usar <a href="/wiki/hashcat/regras">AQUI</a></li><li><b>-a &lt;--attack-mode&gt;</b>: escolhe um dos modos de ataque (0-7)<ul><li><a href="/wiki/adicio">Ataque de dicionário</a> - 0</li><li><a href="/wiki/adicio">Ataque de combinação</a> - 1</li><li><a href="/wiki/fbruta">Ataque de força bruta e ataque de máscara</a> - 3</li><li><a href="/wiki/fbruta">Ataque baseado em regras</a> - 0, 6 e 7</li><li><a href="/wiki/fbruta">Ataque de caixa alternada</a> - 7</li><li><a href="/wiki/ahibrido">Ataque híbrido</a> - 6 e 7</li></ul><li><b>-h</b>: para instruções mais específicas</li></li></ul></div><h4 class="subtitle" id="exemplos">Exemplos:</h4><div class="container"><p><b></b><a href="/wiki/fbruta">Ataque de dicionário</a></p><p>Modo de ataque 0  para crackear varios hashes  na lista &quot;<code>hashMD5.txt</code>&quot; md5 usando uma lista chamada &quot;<code>lista_de_senhas.txt</code>&quot;</p><p><code class="tab block">hashcat -a 0 -m 0 hashMD5.txt lista_de_senhas.txt</code></p><p><b></b><a href="/wiki/fbruta">Ataque baseado em regras</a></p><p>Modo de ataque 0 para crackear um hash SHA-1 seguindo as regras impostas pelo arquivo &quot;<code>regras.txt</code>&quot;). Uma explicação mais completa pode ser encontrada <a href="/wiki/hashcat/regras">AQUI</a>.</p><p><code class="tab block">hashcat -a 0 -m 100 hashSHA1.txt -r regras.txt</code></p><p><b></b><a href="/wiki/ahibrido/">Ataque de caixa alternada</a></p><p>O ataque de caixa alternada pode ser feito usando as regras (ataque 0) do hashcat já que existe o comando &quot;TN&quot; que altera maiúsculo ou minúsculo na casa &quot;N&quot;. Existem regras prontas para serem baixadas e usadas para poder serem usadas <a href="https://github.com/hashcat/hashcat/tree/master/rules" target="_blank">AQUI&nearr;</a>.</p><p>As listas providas, contém a mudança de palavras de 1 até 15 caracteres, podendo mudar até 5 caracteres simultâneamentes.</p><p><code class="tab block">hashcat -a 0 -m 100 hashSHA1.txt dicio.txt -r toggle5.rule</code></p><p><b></b><a href="/wiki/adicio">Ataque de combinação</a></p><p>Modo de ataque 1 para crackear uma lista de hashes &quot;<code>hashMD4.txt</code>&quot; MD4 usando duas listas &quot;<code>lista_1.txt</code>&quot; e &quot;<code>lista_2.txt</code>&quot;</p><p><code class="tab block">hashcat -a 1 -m 900 hashMD4.txt lista_1.txt lista_2.txt</code></p><p><b></b><a href="/wiki/fbruta">Ataque de força bruta e máscara</a></p><p>Modo de ataque 3 para crackear um hash MD4 composto de 6 letras (a-z). Uma explicação mais completa pode ser encontrada <a href="/wiki/hashcat/fbrutamasc">AQUI</a>.</p><p><code class="tab block">hashcat -a 3 -m 900 hashMD4.txt ?l?l?l?l?l?l</code></p><p><b></b><a href="/wiki/ahibrido">Ataque híbrido</a></p><p>Modo de ataque 6 (dicionário + máscara) e 7 (máscara + dicionário). Usando o ataque 6 o ataque será feito com as palavras do dicionário na frente e o ataque de máscara concatenado logo depois, usando o ataque 7 o ataque será feito com as palavras do dicionário concatenado depois do ataque de máscara.</p><p><code class="tab block">hashcat -a 6 -m 900 hashSHA1.txt dicio.txt l?l?l</code></p><p><code class="tab block">hashcat -a 7 -m 900 hashSHA1.txt ?l?l?l dicio.txt</code></p></div></body></html>
+﻿<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/favicon.png" />
+    <title>[E]ACH inTheShell_</title>
+    <script src="/public/js/load-components.js"></script>
+  </head>
+  <body>
+    <div class="subtitle">
+      <h1>
+        <a href="/wiki">&larr; <a href="">hashcat</a></a>
+      </h1>
+      <sub>ferramenta (linux, mac, windows)</sub>
+    </div>
+    <h4 class="subtitle" id="descricao">Descrição:</h4>
+    <div class="container">
+      <p>
+        O <code>hashcat</code> é uma ferramenta para quebrar hashes, em seu
+        <a href="https://hashcat.net" target="_blank"> site oficial&nearr;</a>
+        existe uma lista com todos os hashes suportados. A parte start do
+        <a
+          href="https://hashcat.net/wiki/#howtos_videos_papers_articles_etc_in_the_wild"
+          target="_blank"
+          >site&nearr;</a
+        >
+        mostra ferramentas e sites auxiliares bem úteis.
+      </p>
+      <p>
+        <a href="/wiki/hashid">hashid</a> e o
+        <a href="/wiki/hashcat"> hashcat</a> fazem uma boa combinação também!
+      </p>
+      <p>
+        Para extrair hashes de arquivos existe esse
+        <a
+          href="https://www.unix-ninja.com/p/A_cheat-sheet_for_password_crackers"
+          target="_blank"
+          >cheat-sheet&nearr;</a
+        >.
+      </p>
+      <p>
+        Esse
+        <a
+          href="https://hashcat.net/wiki/doku.php?id=example_hashes"
+          target="_blank"
+          >site&nearr;</a
+        >
+        contém alguns exemplos de hashes.
+      </p>
+    </div>
+    <h4 class="subtitle" id="uso">Uso:</h4>
+    <div class="container">
+      <p><code> hashcat [opção...] &lt;hash&gt;</code></p>
+      O <code>&lt;hash&gt;</code> pode ser tanto um hash escrito quanto um
+      arquivo.
+      <h4 class="subtitle" id="opcoes">Opções:</h4>
+      <ul>
+        <li>
+          <b>&lt;--show&gt;</b>: mostra o resultado dos hashes registrados que
+          conseguiram quebrar o arquivo
+        </li>
+        <li>
+          <b>-m &lt;--hash-type&gt;</b>: escolhe o tipo de hash para o hashcat
+          crackear
+        </li>
+        <li>
+          <b>-p &lt;--separator&gt;</b>: escolhe um char para as listas de
+          hashes e o arquivo de saída
+        </li>
+        <li>
+          <b>-r &lt;--rules-file&gt;</b>: recebe um arquivo com as regras
+          aplicadas para cada palavra da lista de palvras. Explicação de como
+          usar <a href="/wiki/hashcat/regras">AQUI</a>
+        </li>
+        <li>
+          <b>-a &lt;--attack-mode&gt;</b>: escolhe um dos modos de ataque (0-7)
+          <ul>
+            <li><a href="/wiki/adicio">Ataque de dicionário</a> - 0</li>
+            <li><a href="/wiki/adicio">Ataque de combinação</a> - 1</li>
+            <li>
+              <a href="/wiki/fbruta"
+                >Ataque de força bruta e ataque de máscara</a
+              >
+              - 3
+            </li>
+            <li>
+              <a href="/wiki/fbruta">Ataque baseado em regras</a> - 0, 6 e 7
+            </li>
+            <li><a href="/wiki/fbruta">Ataque de caixa alternada</a> - 7</li>
+            <li><a href="/wiki/ahibrido">Ataque híbrido</a> - 6 e 7</li>
+          </ul>
+        </li>
+        <li><b>-h</b>: para instruções mais específicas</li>
+      </ul>
+    </div>
+    <h4 class="subtitle" id="exemplos">Exemplos:</h4>
+    <div class="container">
+      <p><b></b><a href="/wiki/fbruta">Ataque de dicionário</a></p>
+      <p>
+        Modo de ataque 0 para crackear varios hashes na lista
+        &quot;<code>hashMD5.txt</code>&quot; md5 usando uma lista chamada
+        &quot;<code>lista_de_senhas.txt</code>&quot;
+      </p>
+      <p>
+        <code class="tab block"
+          >hashcat -a 0 -m 0 hashMD5.txt lista_de_senhas.txt</code
+        >
+      </p>
+      <p><b></b><a href="/wiki/fbruta">Ataque baseado em regras</a></p>
+      <p>
+        Modo de ataque 0 para crackear um hash SHA-1 seguindo as regras impostas
+        pelo arquivo &quot;<code>regras.txt</code>&quot;). Uma explicação mais
+        completa pode ser encontrada <a href="/wiki/hashcat/regras">AQUI</a>.
+      </p>
+      <p>
+        <code class="tab block"
+          >hashcat -a 0 -m 100 hashSHA1.txt -r regras.txt</code
+        >
+      </p>
+      <p><b></b><a href="/wiki/ahibrido/">Ataque de caixa alternada</a></p>
+      <p>
+        O ataque de caixa alternada pode ser feito usando as regras (ataque 0)
+        do hashcat já que existe o comando &quot;TN&quot; que altera maiúsculo
+        ou minúsculo na casa &quot;N&quot;. Existem regras prontas para serem
+        baixadas e usadas para poder serem usadas
+        <a
+          href="https://github.com/hashcat/hashcat/tree/master/rules"
+          target="_blank"
+          >AQUI&nearr;</a
+        >.
+      </p>
+      <p>
+        As listas providas, contém a mudança de palavras de 1 até 15 caracteres,
+        podendo mudar até 5 caracteres simultâneamentes.
+      </p>
+      <p>
+        <code class="tab block"
+          >hashcat -a 0 -m 100 hashSHA1.txt dicio.txt -r toggle5.rule</code
+        >
+      </p>
+      <p><b></b><a href="/wiki/adicio">Ataque de combinação</a></p>
+      <p>
+        Modo de ataque 1 para crackear uma lista de hashes
+        &quot;<code>hashMD4.txt</code>&quot; MD4 usando duas listas
+        &quot;<code>lista_1.txt</code>&quot; e
+        &quot;<code>lista_2.txt</code>&quot;
+      </p>
+      <p>
+        <code class="tab block"
+          >hashcat -a 1 -m 900 hashMD4.txt lista_1.txt lista_2.txt</code
+        >
+      </p>
+      <p><b></b><a href="/wiki/fbruta">Ataque de força bruta e máscara</a></p>
+      <p>
+        Modo de ataque 3 para crackear um hash MD4 composto de 6 letras (a-z).
+        Uma explicação mais completa pode ser encontrada
+        <a href="/wiki/hashcat/fbrutamasc">AQUI</a>.
+      </p>
+      <p>
+        <code class="tab block"
+          >hashcat -a 3 -m 900 hashMD4.txt ?l?l?l?l?l?l</code
+        >
+      </p>
+      <p><b></b><a href="/wiki/ahibrido">Ataque híbrido</a></p>
+      <p>
+        Modo de ataque 6 (dicionário + máscara) e 7 (máscara + dicionário).
+        Usando o ataque 6 o ataque será feito com as palavras do dicionário na
+        frente e o ataque de máscara concatenado logo depois, usando o ataque 7
+        o ataque será feito com as palavras do dicionário concatenado depois do
+        ataque de máscara.
+      </p>
+      <p>
+        <code class="tab block"
+          >hashcat -a 6 -m 900 hashSHA1.txt dicio.txt l?l?l</code
+        >
+      </p>
+      <p>
+        <code class="tab block"
+          >hashcat -a 7 -m 900 hashSHA1.txt ?l?l?l dicio.txt</code
+        >
+      </p>
+    </div>
+  </body>
+</html>
