@@ -124,6 +124,16 @@ code.block.tab {
   margin-left: 20px;
 }
 
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img{
+  height: 50px;
+  margin-right: 20px;
+}
+
 .members {
   display: flex;
   flex-wrap: wrap;
