@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/favicon.png" />
+    <title>[E]ACH inTheShell_</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <b><a href="/" style="font-size: xx-large">inTheShell_</a></b>
+          </div>
+          <div class="nav-bar">
+            <a href="/writeups">Write‑ups</a><a href="/wiki">Enciclopédia</a
+            ><a href="/atividades">Atividades</a><a href="/membros">Membros</a
+            ><a href="/sobre">Sobre</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="subtitle">
+      <h1>
+        <a href="/wiki">&larr; <a href="">JohnTheRipper</a></a>
+      </h1>
+      <sub>ferramenta (linux, mac, windows)</sub>
+    </div>
+    <h4 class="subtitle" id="descricao">Descrição:</h4>
+    <div class="container">
+      <p>
+        <code>john</code> é uma ferramenta para craquear hashes em arquivos.
+      </p>
+      <p>
+        A ferramenta é um pouco enjoado quanto à formatação do arquivo de
+        entrada, então para algumas das hashes que você achar, vai ter que
+        &quot;traduzi-las&quot; para serem consumidas como entrada.
+      </p>
+      <ul>
+        <li>ssh2john - chaves SSH para o formato john</li>
+        <li>
+          unshadow - junta os arquivos &grave;/etc/passwd&grave; e
+          &grave;/etc/shadow&grave; no formato john
+        </li>
+      </ul>
+    </div>
+    <h4 class="subtitle" id="uso">Uso:</h4>
+    <div class="container">
+      <code>john [opção]... &lt;arquivo hash&gt;</code>
+      <h4 class="subtitle" id="opcoes">Opções:</h4>
+      <ul>
+        <li>
+          <b>--wordlist=&lt;wordlist&gt;</b>:
+          <p>
+            Define uma <a href="/wiki/wlist">wordlist</a> customizada
+            &#x9;&#x9;&#x9;para utilizar
+          </p>
+        </li>
+      </ul>
+    </div>
+    <h4 class="subtitle" id="exemplos">Exemplos:</h4>
+    <div class="container"></div>
+  </body>
+</html>

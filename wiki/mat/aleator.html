@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/favicon.png" />
+    <title>[E]ACH inTheShell_</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <b><a href="/" style="font-size: xx-large">inTheShell_</a></b>
+          </div>
+          <div class="nav-bar">
+            <a href="/writeups">Write‑ups</a><a href="/wiki">Enciclopédia</a
+            ><a href="/atividades">Atividades</a><a href="/membros">Membros</a
+            ><a href="/sobre">Sobre</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="subtitle">
+      <h1>
+        <a href="/wiki/cripto">&larr; <a href="">Aleatoriedade</a></a>
+      </h1>
+      <sub>categoria</sub>
+    </div>
+    <h4 class="subtitle" id="descricao">Descrição:</h4>
+    <div class="container">
+      <p>Existem 3 tipos de geradores de números aleatórios:</p>
+      <ul>
+        <li>
+          Geradores de números aleatórios (TRNG):
+          <p>
+            São feitos a partir de processos físicos e não é possível recriar.
+          </p>
+          <p>
+            Por exemplo: ao jogar uma moeda pra cima, variação de ruídos do ar.
+          </p>
+        </li>
+        <li>
+          Geradores de números pseudo-aleatórios(PRNG):
+          <p>
+            São feitos a partir de uma semente (um número aleatório escolhido
+            para poder gerar o número aleatório).
+          </p>
+          <p>
+            Depois do número ser gerado ele é executado dentro de uma função
+            várias vezes, cada vez que ele for executado nessa função ele perde
+            um pouco de sua aleatoriedade e começa a ser determinístico
+          </p>
+          <p>
+            Método de quadrados médios é um desses exemplos, nele a primeira
+            semente é multiplicada por si mesma gerando assim uma nova semente
+            então o número do meio é retirado e se torna a nova semente, assim
+            se repitindo o processo até atingir o tamanho da semente desejada.
+          </p>
+          <p>Exemplo:</p>
+          <p>Semente1 = 121</p>
+          <p>Semente1 = Semente1 * Semente1 = 14641</p>
+          <p>Semente2 = 464</p>
+        </li>
+        <li>
+          Geradores de números pseudo-aleatórios criptograficamente seguros
+          (CPRNG):
+          <p>
+            São números pseudo-aleatórios, mas os números são imprevisíveis.
+          </p>
+          <p>Definição informal</p>
+          <p>
+            Dado n bits de saída de Si até Si+n-1 é computacinalmente impossível
+            construir Sn
+          </p>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

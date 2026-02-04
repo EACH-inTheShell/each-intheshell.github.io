@@ -1,0 +1,186 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/favicon.png" />
+    <title>[E]ACH inTheShell_</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <b><a href="/" style="font-size: xx-large">inTheShell_</a></b>
+          </div>
+          <div class="nav-bar">
+            <a href="/writeups">Write‑ups</a><a href="/wiki">Enciclopédia</a
+            ><a href="/atividades">Atividades</a><a href="/membros">Membros</a
+            ><a href="/sobre">Sobre</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="subtitle">
+      <h1>
+        <a href="/wiki/rede">&larr; <a href="">Nmap</a></a>
+      </h1>
+      <sub>ferramenta (linux, mac, windows)</sub>
+    </div>
+    <h4 class="subtitle" id="descricao">Descrição:</h4>
+    <div class="container">
+      <p>
+        O <code>nmap</code> é uma ferramenta de scan que enumera uma rede
+        buscando &#x9;por máquinas e as portas e serviços abertos nessas
+        máquinas.
+      </p>
+      <p>
+        Ele também faz uso de scripts internos para buscar por versões e
+        vulnerabilidades desses serviços encontrados.
+      </p>
+    </div>
+    <h4 class="subtitle" id="uso">Uso:</h4>
+    <div class="container">
+      <code>nmap [opção]... &lt;alvo&gt;</code>
+      <p>
+        O <code>&lt;alvo&gt;</code> é um endereço IP, um conjunto de IPs escrito
+        &#x9;com a
+        <a
+          href="https://pt.wikipedia.org/wiki/Roteamento_entre_dom%C3%ADnios_sem_classes#Nota.C3.A7.C3.A3o_standard"
+          target="_blank"
+          >notação CIDR&nearr;</a
+        >
+        ou até um nome de domínio (como<code>google.com</code>).
+      </p>
+      <h4 class="subtitle" id="opcoes">Opções:</h4>
+      <ul>
+        <li>
+          <b>-p &lt;porta(s)&gt;</b>:
+          <p>define quais portas escanear. A notação de portas pode ser:</p>
+          <ul>
+            <li>somente um número (<code>80</code>);</li>
+            <li>
+              um intervalo de portas indicadas por
+              <code>&lt;primeira porta&gt;-&lt;última porta&gt;</code>, podendo
+              omitir uma ou &#x9;&#x9;&#x9;&#x9;&#x9;ambas as portas;
+            </li>
+            <li>
+              uma combinação das duas acima separadas por vírgula (sem espaço).
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>-sV</b>:
+          <p>Escaneia pela versão dos serviços encontrados;</p>
+        </li>
+        <li>
+          <b>-sS</b>:
+          <p>
+            Faz um Syn Scan; manda só o pacote SYN da sessão TCP e espera por
+            uma resposta. Não consegue verificar qual o serviço, só quais portas
+            estão abertas;
+          </p>
+        </li>
+        <li>
+          <b>-sC</b>:
+          <p>
+            A mesma coisa que <code>--script default</code> (ver
+            &#x9;&#x9;&#x9;--script abaixo);
+          </p>
+        </li>
+        <li>
+          <b>-Pn</b>:
+          <p>
+            Pula o Ping Scan (um scan que acontece antes do scan de portas).
+            Esse Ping Scan verifica se é possível se conectar a um computador e
+            muito útil para scan envolvendo vários alvos;
+          </p>
+        </li>
+        <li>
+          <b>-T&lt;0-5&gt;</b>:
+          <p>
+            Define a frequência de pacotes a ser enviado. Quando maior o número,
+            mais pacotes por segundo, mas maior é a chance de que pacotes sejam
+            perdidos e algumas portas abertas não sejam encontradas;
+          </p>
+        </li>
+        <li>
+          <b>-O</b>:
+          <p>
+            Scan de Sistema Operacional. Um &quot;chute&quot; educado é feito
+            sobre qual sistema operacional (e sua versão) está sendo utilizado
+            na máquina alvo;
+          </p>
+        </li>
+        <li>
+          <b>-A</b>:
+          <p>
+            Scan agressivo. Envolve os scans<code>-O</code>, <code>-sV</code>,
+            <code>-sC</code> e<code>--traceroute</code>;
+          </p>
+        </li>
+        <li>
+          <b>--script &lt;script/categoria&gt;</b>:
+          <p>
+            Roda todos os scripts de uma categoria ou um script específico sobre
+            uma máquina. A ação dos scripts depende da escolha. Algumas das
+            categorias são:
+          </p>
+          <ul>
+            <li>
+              <b>auth</b>: Verifica autenticações padrão (como o login<code
+                >anonymous</code
+              >
+              do <code>FTP</code>);
+            </li>
+            <li>
+              <b>default</b>: São alguns dos scripts mais utilizados. é seguro,
+              &#x9;&#x9;&#x9;&#x9;&#x9;rápido e generalizado;
+            </li>
+            <li>
+              <b>intrusive</b>: Utiliza funcionalidades que podem estressar
+              &#x9;&#x9;&#x9;&#x9;&#x9;muito o sistema remoto e possivelmente
+              chegar a incapacita-lo. &#x9;&#x9;&#x9;&#x9;&#x9;Usar com
+              responsabilidade;
+            </li>
+            <li>
+              <b>vuln</b>: Busca por vulnerabilidades conhecidas nos serviços.
+            </li>
+          </ul>
+          <p>
+            Todos os scripts avulsos podem ser vistos
+            <a href="https://nmap.org/nsedoc/" target="_blank">aqui&nearr;</a> e
+            as &#x9;&#x9;&#x9;categorias
+            <a href="https://nmap.org/nsedoc/" target="_blank">aqui&nearr;</a>.
+          </p>
+        </li>
+      </ul>
+    </div>
+    <h4 class="subtitle" id="exemplos">Exemplos:</h4>
+    <div class="container">
+      <p>
+        Todos os endereços IP de
+        <code>192.168.0.0</code> a<code>192.168.0.255</code>, testando as portas
+        de <code>0</code> a<code>65535</code> de cada maquina
+      </p>
+      <code class="tab block">nmap -p - 192.168.0.0/24</code>
+      <p>
+        Portas <code>80</code> e <code>1000</code> a <code>1800</code> no
+        endereço &#x9;IP <code>192.168.1.10</code>, rodando a coleção de scripts
+        de vulnerabilidade &#x9;no alvo.
+      </p>
+      <code class="tab block"
+        >nmap -p 80,1000-1800 --script vuln 192.168.0.10</code
+      >
+      <p>
+        Inferir versões dos serviços que estão abertos no endereço
+        intheshell.page
+      </p>
+      <code class="tab block">nmap -sV intheshell.page</code>
+    </div>
+  </body>
+</html>

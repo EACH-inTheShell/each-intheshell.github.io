@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/favicon.png" />
+    <title>[E]ACH inTheShell_</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <b><a href="/" style="font-size: xx-large">inTheShell_</a></b>
+          </div>
+          <div class="nav-bar">
+            <a href="/writeups">Write‑ups</a><a href="/wiki">Enciclopédia</a
+            ><a href="/atividades">Atividades</a><a href="/membros">Membros</a
+            ><a href="/sobre">Sobre</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="subtitle">
+      <h1>
+        <a href="/wiki/forense">&larr; <a href="">exiftool</a></a>
+      </h1>
+      <sub>ferramenta (linux, mac, windows)</sub>
+    </div>
+    <h4 class="subtitle" id="descricao">Descrição:</h4>
+    <div class="container">
+      <p>
+        O <code>exiftool</code> é uma ferramenta para visualizar e editar os
+        metadados de um arquivo (O
+        <a href="https://exiftool.org/" target="_blank">site oficial&nearr;</a>
+        contém uma tabela mostrando quais arquivos são suportados).
+      </p>
+    </div>
+    <h4 class="subtitle" id="uso">Uso:</h4>
+    <div class="container">
+      <ul>
+        <li>Ler os metadados de arquivo:</li>
+        <p>
+          <code class="tab block"
+            >exiftool [opção] [-*TAG...] [--*TAG...] [arquivo]...</code
+          >
+        </p>
+        <li>Escrever os metadados em um arquivo:</li>
+        <p><code class="tab block">exiftool [opção] -*TAG*[+-</code></p>
+        <li>Copiar os metadados de um arquivo:</li>
+        <p>
+          <code class="tab block"
+            >exiftool [opção] -tagsFromFile *SRCFILE*
+            [-*SRCTAG*[&gt;*DSTTAG*]...] [arquivo]...</code
+          >
+        </p>
+      </ul>
+      <h4 class="subtitle" id="opcoes">Opções:</h4>
+      <ul>
+        <li>
+          <b>-a &lt;-duplicates&gt;</b>: imprime todos os metadados imprimindo
+          também duplicados
+        </li>
+        <li>
+          <b>-ee &lt;extractEmbedded&gt;</b>: extrai as informaçoes de arquivos
+          embutidos
+        </li>
+        <li>
+          <b>-fast[NUM]</b>: aumenta a velocidade de extração dos metadados
+        </li>
+        <li><b>-u &lt;-unknown&gt;</b>: imprime as tags desconhecidas</li>
+        <li>
+          <b>-U &lt;-unknown2&gt;</b>: imprime as tags binárias desconhecidas
+        </li>
+      </ul>
+    </div>
+    <h4 class="subtitle" id="exemplos">Exemplos:</h4>
+    <div class="container">
+      <ul>
+        <li>
+          Ler:
+          <p>
+            Todos os metadados do arquivo <code>&quot;Imagem.jpg&quot;</code>
+          </p>
+          <code class="tab block">exiftool -a Imagem.jpg</code>
+          <p>
+            Apenas os metadados que tem <code>&quot;size&quot;</code> e
+            <code>&quot;image&quot;</code> na sua TAG e não tenham
+            &quot;<code>file</code>&quot; no arquivo
+            &quot;<code>picasso.png</code>&quot;
+          </p>
+          <code class="tab block"
+            >exiftool -&quot;*size*&quot; -&quot;*image*&quot;
+            --&quot;*file*&quot; picasso.png</code
+          >
+        </li>
+        <li>
+          Escrever:
+          <p>Uma tag em múltiplos arquivos</p>
+          <code class="tab block"
+            >exiftool -artist=&quot;miku&quot; SEKAIDE.mp3
+            SENBONZAKURA.mp3</code
+          >
+          <p>
+            Apagar a tag <code>&quot;artist&quot;</code> em no arquivo
+            <code>&quot;aaa.png&quot;</code>
+          </p>
+          <code class="tab block">exiftool -artist= aaa.png</code>
+        </li>
+        <li>
+          Copiar:
+          <p>
+            Copiar todos os metadados do arquivo
+            <code>&quot;papelparede.jpg&quot;</code> para o arquivo
+            <code>&quot;wallpaper.jpg&quot;</code>
+          </p>
+          <code class="tab block"
+            >exiftool -tagsFromFile papelparede.jpg wallpaper.jpg</code
+          >
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

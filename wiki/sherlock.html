@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/favicon.png" />
+    <title>[E]ACH inTheShell_</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <b><a href="/" style="font-size: xx-large">inTheShell_</a></b>
+          </div>
+          <div class="nav-bar">
+            <a href="/writeups">Write‑ups</a><a href="/wiki">Enciclopédia</a
+            ><a href="/atividades">Atividades</a><a href="/membros">Membros</a
+            ><a href="/sobre">Sobre</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="subtitle">
+      <h1>
+        <a href="/wiki/osint">&larr; <a href="">Sherlock</a></a>
+      </h1>
+      <sub>ferramenta (linux, mac, windows)</sub>
+    </div>
+    <h4 class="subtitle" id="descricao">Descrição:</h4>
+    <div class="container">
+      <p>
+        <code>sherlock</code> é uma ferramenta de
+        <a href="/wiki/osint">OSINT</a> que &#x9;busca por contas com os nomes
+        de usuário que você fornece. No final, é criado &#x9;um arquivo para
+        cada usuário listando todos os sites em que aparenta ter uma &#x9;conta
+        com o nome.
+      </p>
+    </div>
+    <h4 class="subtitle" id="uso">Uso:</h4>
+    <div class="container">
+      <p>
+        <code
+          >sherlock [opções] &lt;nome de usuário&gt; [nome de usuário]..</code
+        >
+      </p>
+      <p></p>
+      <h4 class="subtitle" id="opcoes">Opções:</h4>
+      <ul>
+        <li>
+          <b>--print-found</b>:
+          <p>
+            mostra somente os sites que encontraram contas com o nome de usuário
+          </p>
+        </li>
+        <li>
+          <b>-t/--tor</b>:
+          <p>passa todo o tráfico dessas requisições pela rede tor</p>
+        </li>
+        <li>
+          <b>-u/--unique-tor</b>:
+          <p>
+            passa os tráficos pela rede tor, mas cria uma nova cadeia na rede a
+            cada requisição
+          </p>
+        </li>
+        <li>
+          <b>-fo/--folderoutput &lt;diretório&gt;</b>:
+          <p>
+            diretório em que será colocados todos os arquivos de resultado do
+            scan (caso haja mais de um nome de usuário)
+          </p>
+        </li>
+        <li>
+          <b>-o/--output &lt;arquivo&gt;</b>:
+          <p>
+            nome do arquivo onde será guardado o resultado (caso haja somente um
+            nome de usuário)
+          </p>
+        </li>
+      </ul>
+    </div>
+    <h4 class="subtitle" id="exemplos">Exemplos:</h4>
+    <div class="container">
+      <p>Procurar pelos usuários intheshell, eachintheshell e eits</p>
+      <code class="tab block">sherlock intheshell eachintheshell eits</code>
+      <p>
+        A mesma pesquisa, mas agora só mostrando os resultados que deram
+        positivo
+      </p>
+      <code class="tab block"
+        >sherlock --print-found intheshell eachintheshell eits</code
+      >
+    </div>
+  </body>
+</html>

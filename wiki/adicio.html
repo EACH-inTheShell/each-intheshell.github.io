@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/favicon.png" />
+    <title>[E]ACH inTheShell_</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <b><a href="/" style="font-size: xx-large">inTheShell_</a></b>
+          </div>
+          <div class="nav-bar">
+            <a href="/writeups">Write‑ups</a><a href="/wiki">Enciclopédia</a
+            ><a href="/atividades">Atividades</a><a href="/membros">Membros</a
+            ><a href="/sobre">Sobre</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="subtitle">
+      <h1>
+        <a href="/wiki/geral">&larr; <a href="">Ataque de Dicionário</a></a>
+      </h1>
+      <sub>técnica</sub>
+    </div>
+    <h4 class="subtitle" id="descricao">Descrição:</h4>
+    <div class="container">
+      <p>
+        Ataques de dicionário tem como objetivo descobrir a combinação certa de
+        valores dentro de um universo limitado de possibilidades.
+      </p>
+      <p>
+        Ele utilizam uma <a href="/wiki/wlist">wordlist</a> -- uma lista das
+        opções mais prováveis para a combinação que você está tentando descobrir
+        -- para tentar diminuir o número de tentativas e, com isso, o tempo que
+        leva para descobrir a combinação certa seja ela a senha para o usuário
+        <code>admin</code> ou um subdiretório secreto em um site.
+      </p>
+      <p>Subcategorias:</p>
+      <p><a>Ataque de combinação</a></p>
+      <p>
+        Concatena cada palavra de um ou dois dicionarios e usa elas para fazer o
+        ataque.
+      </p>
+      <p>Exemplo:</p>
+      <p></p>
+      <p>Lista 1: abacate, pêra e maçã</p>
+      <p>Lista 2: uva e melão</p>
+      <p>
+        Lista Resultante: abacateuva, abacatemelão, pêrauva, pêramelão, maçãuva
+        e maçãmelão
+      </p>
+    </div>
+    <h4 class="subtitle" id="ferramentas">
+      Ferramentas que utilizam ataque de dicionário:
+    </h4>
+    <div class="container">
+      <ul>
+        <li><a href="/wiki/hydra">hydra</a></li>
+        <li><a href="/wiki/gobuster">gobuster</a></li>
+      </ul>
+    </div>
+    <h4 class="subtitle" id="vertambem">Ver também:</h4>
+    <div class="container">
+      <ul>
+        <li><a href="/wiki/fbruta">Ataque de força bruta</a></li>
+      </ul>
+    </div>
+  </body>
+</html>

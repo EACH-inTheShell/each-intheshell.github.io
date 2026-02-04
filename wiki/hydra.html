@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/favicon.png" />
+    <title>[E]ACH inTheShell_</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <b><a href="/" style="font-size: xx-large">inTheShell_</a></b>
+          </div>
+          <div class="nav-bar">
+            <a href="/writeups">Write‑ups</a><a href="/wiki">Enciclopédia</a
+            ><a href="/atividades">Atividades</a><a href="/membros">Membros</a
+            ><a href="/sobre">Sobre</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="subtitle">
+      <h1>
+        <a href="/wiki/rede">&larr; <a href="">Hydra</a></a>
+      </h1>
+      <sub>ferramenta (linux, mac, windows)</sub>
+    </div>
+    <h4 class="subtitle" id="descricao">Descrição:</h4>
+    <div class="container">
+      <p>
+        <code>hydra</code> é utilizada para fazer ataques de
+        <a href="/wiki/adicio">dicionário</a> e
+        <a href="/wiki/fbruta">força bruta</a> em serviços expostos na rede como
+        SSH, HTTP-POST e FTP.
+      </p>
+    </div>
+    <h4 class="subtitle" id="uso">Uso:</h4>
+    <div class="container">
+      <code>hydra [opções] &lt;configuração do alvo&gt;</code>
+      <p>A configuração do alvo pode ser definida de duas formas:</p>
+      <ul>
+        <li><code>&lt;serviço&gt;://&lt;alvo&gt;/[opções do serviço]</code></li>
+        <li><code>&lt;alvo&gt; &lt;serviço&gt; [opções do serviço]</code></li>
+      </ul>
+      <h4 class="subtitle" id="opcoes">Opções:</h4>
+      <ul>
+        <li>
+          <b>-l &lt;usuário&gt;</b>:
+          <p>define o nome de usuário</p>
+        </li>
+        <li>
+          <b>-L &lt;wordlist&gt;</b>:
+          <p>
+            define uma <a href="/wiki/wlist">wordlist</a> de nomes de usuário
+          </p>
+        </li>
+        <li>
+          <b>-p &lt;senha&gt;</b>:
+          <p>define uma senha</p>
+        </li>
+        <li>
+          <b>-P &lt;wordlist&gt;</b>:
+          <p>define uma <a href="/wiki/wlist">wordlist</a> de senhas</p>
+        </li>
+        <li>
+          <b>-u</b>:
+          <p>
+            Troca a rotação de usuários e senhas. Por padrão, o hydra testa
+            todas as senhas com um usuário só para depois ir para o próximo
+            usuário (rotacionando a senha). Essa opção troca a rotação para
+            testar todos os usuários em uma senha antes de ir para a próxima
+            senha. útil para um ataque com poucos usuários e muitas senhas
+          </p>
+        </li>
+        <li>
+          <b>-s</b>:
+          <p>Define a porta caso ela não esteja na porta padrão do serviço</p>
+        </li>
+        <li>
+          <b>-t</b>:
+          <p>Define o número de threads máxima a ser utilizada</p>
+        </li>
+      </ul>
+    </div>
+    <h4 class="subtitle" id="exemplos">Exemplos:</h4>
+    <div class="container">
+      <p>
+        Usar o usuário <code>user</code> e <a href="/wiki/wlist">wordlist</a> de
+        senhas <a href=""><code>./rockyou.txt</code></a> para acessar o servidor
+        ssh <code>intheshell.page</code>
+      </p>
+      <code class="tab block"
+        >hydra -l user -P ./rockyou.txt intheshell.page ssh</code
+      >
+      <p>
+        Usar o usuário <code>admin</code> com a
+        <a href="/wiki/wlist">wordlist</a> de senhas
+        <code><a href="">./rockyou.txt</a></code> para atacar a página de login
+        <code>https://intheshell.page/login.php</code> onde o input de nome de
+        usuário é <code>username</code> e a mensagem de erro que aparece quando
+        você erra a senha é &apos;Senha inválida&apos;
+      </p>
+      <code class="tab block"
+        >hydra -l admin -P ./rockyou.txt
+        &quot;http-post-form://intheshell.page/login.php:username=^USER^&amp;senha=^PASS^:Senha
+        inválida&quot;</code
+      >
+    </div>
+  </body>
+</html>

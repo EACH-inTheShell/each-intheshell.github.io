@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/favicon.png" />
+    <title>[E]ACH inTheShell_</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <b><a href="/" style="font-size: xx-large">inTheShell_</a></b>
+          </div>
+          <div class="nav-bar">
+            <a href="/writeups">Write‑ups</a><a href="/wiki">Enciclopédia</a
+            ><a href="/atividades">Atividades</a><a href="/membros">Membros</a
+            ><a href="/sobre">Sobre</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="subtitle">
+      <h1>
+        <a href="/wiki/hashcat">&larr; <a href="">hashcat (regras)</a></a>
+      </h1>
+      <sub>ferramenta (linux, mac, windows)</sub>
+    </div>
+    <h4 class="subtitle" id="descricao">Descrição:</h4>
+    <div class="container">
+      <p>
+        <a href="https://hashcat.net/wiki/doku.php?id=rule_based_attack"
+          >Aqui&nearr;</a
+        >
+        uma tabela completa de cada comando e o que cada comando faz e uma wiki
+        mais aprofundada.
+      </p>
+      <p>
+        As regras que forem colocadas aqui serão aplicadas em todas as palavras
+        da lista escolhida.
+      </p>
+      <p>
+        Para aplicar as regras no comando basta colocar &quot;-r&quot; e o nome
+        do arquivo contendo as regras logo em seguida.
+      </p>
+      <p>Exemplo:</p>
+      <p>
+        <code class="tab block">hashcat hashes.txt dicio.txt -r regras</code>
+      </p>
+      <p>Aviso:</p>
+      <p>
+        é bom saber que existe um arquivo no &quot;~/.hashcat&quot; com o nome
+        &quot;hashcat.potfile&quot; que contém todos os hashes crackeados.
+      </p>
+    </div>
+    <h4 class="subtitle" id="descricao">Criando suas regras</h4>
+    <div class="container">
+      <p>Exemplos:</p>
+      <p>Terminação com &quot;2020&quot;:</p>
+      <p>Conteúdo do arquivo de regras:</p>
+      <p><code class="tab block">$2$0$2$0</code></p>
+      <p>
+        Começo com &quot;123&quot;, término com &quot;asdf&quot; e os dois
+        juntos:
+      </p>
+      <p>Conteúdo do arquivo de regras:</p>
+      <p><code class="tab block">^3^2^1</code></p>
+      <p><code class="tab block">$3$2$1</code></p>
+      <p><code class="tab block">^3^2^1 $a$s$d$f</code></p>
+      <p><b>Aviso:</b></p>
+      <p>
+        O código funciona na ordem em que foi colocado os comandos. Ou seja
+        colocar um comando que remove um caractere no fim da palavra
+        (&quot;]&quot;) logo depois de ter adicionado um caractere
+        (&quot;$x&quot;) vai cancelar o caractere adicionado no final.
+      </p>
+      <p>
+        Conteúdo do arquivo de regras: (essa regra não vai mudar em nada a
+        palavra)
+      </p>
+      <p><code class="tab block">$3 ]</code></p>
+    </div>
+    <h4 class="subtitle" id="testando">Testando suas regras</h4>
+    <div class="container">
+      <p>Criar uma lista caso não tenha para testar suas regras.</p>
+      <p>
+        Usar o parametro &quot;--stdout&quot; para que seja impresso as palavras
+        depois da regra ser aplicada.
+      </p>
+      <p>Exemplo:</p>
+      <p><code class="tab block">hashcat -r regras --stdout lista.txt</code></p>
+    </div>
+    <h4 class="subtitle" id="testando">Gerando regras automaticamente</h4>
+    <div class="container">
+      <p>Número aleatório de regras:</p>
+      <p><code>--generate-rules=NUM</code></p>
+      <p>Número mínimo e máximo respectivamente de regras:</p>
+      <p><code>--generate-rules-func-min=NUM</code></p>
+      <p><code>--generate-rules-func-max=NUM</code></p>
+      <p>Os NUM serão substituídos pela quantidade desejada</p>
+    </div>
+    <h4 class="subtitle" id="testando">
+      Salvar as regras que conseguiram quebrar o hash
+    </h4>
+    <div class="container">
+      <p>(Boa combinação com as regras geradas automaticamentes)</p>
+      <p>--debug-mode=1 --debug-file=arquivodesaída.regra</p>
+    </div>
+  </body>
+</html>

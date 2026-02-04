@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/favicon.png" />
+    <title>[E]ACH inTheShell_</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <b><a href="/" style="font-size: xx-large">inTheShell_</a></b>
+          </div>
+          <div class="nav-bar">
+            <a href="/writeups">Write‑ups</a><a href="/wiki">Enciclopédia</a
+            ><a href="/atividades">Atividades</a><a href="/membros">Membros</a
+            ><a href="/sobre">Sobre</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="subtitle">
+      <h1>
+        <a href="/wiki/web">&larr; <a href="">Gobuster</a></a>
+      </h1>
+      <sub>ferramenta (linux, mac, windows)</sub>
+    </div>
+    <h4 class="subtitle" id="descricao">Descrição:</h4>
+    <div class="container">
+      <p>
+        <code>gobuster</code> é um enumerador que utiliza ataque de
+        <a href="/wiki/adicio">dicionário</a> e
+        <a href="/wiki/fbruta">força bruta</a> em URIs, subdomínios DNS e nomes
+        de hosts virtuais em servidores web.
+      </p>
+    </div>
+    <h4 class="subtitle" id="uso">Uso:</h4>
+    <div class="container">
+      <p>
+        <code>gobuster [opções globais] &lt;modo&gt; [opções de modo]</code>
+      </p>
+      <p></p>
+      <h4 class="subtitle" id="opcoes">Opções:</h4>
+      <p>
+        O <code>gobuster</code> tem três modos: <code>dns</code>,
+        <code>dir</code> e <code>vhost</code>.
+      </p>
+      <h5>Globais</h5>
+      <ul>
+        <li>
+          <b>-t &lt;threads&gt;</b>:
+          <p>define o número de threads usadas para rodar o programa</p>
+        </li>
+        <li>
+          <b>-w/--wordlist &lt;arquivo&gt;</b>:
+          <p>define qual <a href="/wiki/wlist">wordlist</a> usar</p>
+        </li>
+      </ul>
+      <h5>dir</h5>
+      <ul>
+        <li>
+          <b>-u/--url &lt;url&gt;</b>:
+          <p>define qual o alvo do ataque</p>
+        </li>
+      </ul>
+    </div>
+    <h4 class="subtitle" id="exemplos">Exemplos:</h4>
+    <div class="container">
+      <p>
+        Escanear por um subdiret&oacute;rio em https://intheshell.page/ usando a
+        <a href="/wiki/wlist">wordlist</a><code>./wordlist.txt</code>
+      </p>
+      <code class="tab block"
+        >gobuster dir -u https://intheshell.page/ --wordlist
+        ./wordlist.txt</code
+      >
+    </div>
+  </body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/favicon.png" />
+    <title>[E]ACH inTheShell_</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <b><a href="/" style="font-size: xx-large">inTheShell_</a></b>
+          </div>
+          <div class="nav-bar">
+            <a href="/writeups">Write‑ups</a><a href="/wiki">Enciclopédia</a
+            ><a href="/atividades">Atividades</a><a href="/membros">Membros</a
+            ><a href="/sobre">Sobre</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="subtitle">
+      <h1>
+        <a href="/wiki/cripto">&larr; <a href="">hashid</a></a>
+      </h1>
+      <sub>ferramenta (linux, mac, windows)</sub>
+    </div>
+    <h4 class="subtitle" id="descricao">Descrição:</h4>
+    <div class="container">
+      <p>
+        O <code>hashid</code> é uma ferramenta feita em python3 para idenficar o
+        tipo de hash que foi usado para criptografar o dado. Ele contém mais de
+        220 tipos de hashes guardados para comparação.
+      </p>
+    </div>
+    <h4 class="subtitle" id="uso">Uso:</h4>
+    <div class="container">
+      <p><code> hashid [opção...] &lt;entrada&gt;</code></p>
+      &#x9;A <code>&lt;entrada&gt;</code> pode ser tanto um hash escrito quanto
+      vários arquivos em um diretório.
+      <h4 class="subtitle" id="opcoes">Opções:</h4>
+      <ul>
+        <li>
+          <b>-e &lt;-extended&gt;</b>: lista todos os algoritmos de hash
+          incluindo senhas com sal
+        </li>
+        <li>
+          <b>-m &lt;-mode&gt;</b>: mostra o modo correspondente do hash no
+          <a href="/wiki/hashcat">hashcat</a>
+        </li>
+        <li>
+          <b>-j &lt;-john&gt;</b>: mostra o modo correspondente do hash no
+          <a href="/wiki/john">JohnTheRipper</a>
+        </li>
+        <li><b>-o &lt;-outfile FILE&gt;</b>: escreve a saída em um arquivo</li>
+      </ul>
+    </div>
+    <h4 class="subtitle" id="exemplos">Exemplos:</h4>
+    <div class="container">
+      <p>
+        Verificando o hash
+        <code>&quot;6a204bd89f3c8348afd5c77c717a097a&quot;</code>
+      </p>
+      <code class="tab block">hashid 6a204bd89f3c8348afd5c77c717a097a</code>
+      <p>
+        Verificando todos os hashes dentro do arquivo
+        <code>&quot;hash.txt&quot;</code> com o parâmetro <code>-m</code> para
+        mostrar os modos correspondentes para o uso no hashcat
+      </p>
+      <code class="tab block">hashid -m hash.txt</code>
+      <p>
+        Verificando todos os hashes de todos os arquivos da pasta atual com o
+        parâmetro <code>-j</code> para mostrar os modos correspondentes para o
+        uso no JohnTheRipper e colocando a sua saída em um arquivo
+        <code>&quot;resultado.txt&quot;</code>
+      </p>
+      <code class="tab block">hashid -j ./* -o resultado.txt</code>
+    </div>
+  </body>
+</html>

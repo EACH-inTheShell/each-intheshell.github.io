@@ -1,0 +1,214 @@
+html {
+  background-color: #222831;
+  color: #e4e4e4;
+  overflow-y: scroll;
+}
+
+body {
+  padding: 50px;
+  font:
+    17px "Roboto Mono",
+    mono,
+    serif;
+}
+
+h1 {
+  color: #d65a31;
+}
+
+a {
+  text-decoration: none;
+  color: #d65a31;
+}
+
+a.button {
+  color: #e4e4e4;
+  background-color: #d65a31;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li p {
+  margin-left: 50px;
+}
+
+code {
+  font:
+    15px "Roboto Mono",
+    mono;
+  background-color: #0c0e11;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+code.block {
+  padding: 7px;
+  border-radius: 5px;
+  display: block;
+  width: 99%;
+}
+
+code.block.tab {
+  width: 84%;
+}
+
+.calendar {
+  border-style: solid;
+  border-width: 1px 0px 0px 0px;
+  border-color: #ffffff;
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.calendar td {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #ffffff;
+  height: 30px;
+}
+
+.nav-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.nav-bar a {
+  padding: 8px;
+}
+
+.nav-container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.subtitle {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.title {
+  display: flex;
+  align-items: baseline;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.title * {
+  margin-right: 20px;
+}
+
+.subtitle h1 {
+  margin: 0px;
+}
+
+.tab {
+  margin-left: 20px;
+}
+
+.members {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.member {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  margin-bottom: 30px;
+}
+
+.member .image {
+  height: 100px;
+  flex-basis: 100px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  border-width: 50%;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+.member img {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+.member h5 {
+  font-size: 1.5em;
+  color: #d65a31;
+  margin: 0 0 5px 0;
+}
+
+.member h6 {
+  font-size: 1em;
+  margin: 0 0 5px 0;
+}
+
+.member p {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.member .links {
+  display: flex;
+  margin: 7px 0 0 0;
+}
+
+.member .link {
+  font-size: 0.8em;
+  color: #e4e4e4;
+  background-color: #d65a31;
+  padding: 0 3px;
+  border-radius: 3px;
+  margin-right: 7px;
+}
+
+.member .tags {
+  display: flex;
+  margin: 10px 0;
+}
+
+.member .tag {
+  font-size: 0.8em;
+  padding: 0 3px;
+  margin-right: 7px;
+  background-color: #e4e4e4;
+  color: #222831;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+#lista-categoria li {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#type {
+  margin: 0;
+  margin-left: 42px;
+}
+
+#fosseis-button {
+  cursor: pointer;
+}

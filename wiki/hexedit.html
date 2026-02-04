@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/favicon.png" />
+    <title>[E]ACH inTheShell_</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <b><a href="/" style="font-size: xx-large">inTheShell_</a></b>
+          </div>
+          <div class="nav-bar">
+            <a href="/writeups">Write‑ups</a><a href="/wiki">Enciclopédia</a
+            ><a href="/atividades">Atividades</a><a href="/membros">Membros</a
+            ><a href="/sobre">Sobre</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="subtitle">
+      <h1>
+        <a href="/wiki/forense">&larr; <a href="">hexedit</a></a>
+      </h1>
+      <sub>ferramenta (linux, mac)</sub>
+    </div>
+    <h4 class="subtitle" id="descricao">Descrição:</h4>
+    <div class="container">
+      <p>
+        Para o sistema operacional windows existe o
+        <a href="https://mh-nexus.de/en/hxd/" target="_blank"
+          >Hexeditor&nearr;</a
+        >
+      </p>
+      <p>
+        O <code>hexedit</code> é uma ferramenta para ver e editar arquivos em
+        binários pelo terminal. Diferente de um bloco de notas normal é possível
+        mexer com os bytes de um arquivo.
+      </p>
+      <img src="/images/hexedit.png" width="75%" />
+      <p>
+        Na interface do hexedit o bloco da esquerda representa o byte inicial da
+        linha, o bloco do meio representa os dados do arquivo em hexadecimal e o
+        bloco da direita representa os dados do arquivo em ASCII (alguns dados
+        não podem ser representados com caracteres ASCII, então eles são
+        representados por pontos &apos;.&apos;)
+      </p>
+    </div>
+    <h4 class="subtitle" id="uso">Uso:</h4>
+    <div class="container">
+      <ul>
+        <li>Abrir o hexedit:</li>
+        <p><code class="tab block"> hexedit [opção] [arquivo]...</code></p>
+      </ul>
+      <h4 class="subtitle" id="opcoes">Opções:</h4>
+      <ul>
+        <li><b>-s/--sector</b>: formata o programa em um tamanho fixo.</li>
+        <li><b>-m/--maximize</b>: tenta maximizar o tamanho do programa.</li>
+        <li><b>-h/--help</b>: mostra como usar.</li>
+      </ul>
+    </div>
+    <h4 class="subtitle" id="exemplos">CheatSheet:</h4>
+    <div class="container">
+      <ul>
+        <li>
+          <b>F1:</b>
+          <p>Abrir menu de ajuda</p>
+        </li>
+        <li>
+          <b>F2:</b>
+          <p>Salvar o arquivo</p>
+        </li>
+        <li>
+          <b>F3:</b>
+          <p>Carregar um arquivo</p>
+        </li>
+        <li>
+          <b>Setas:</b>
+          <p>Se movimentar pelo arquivo</p>
+        </li>
+        <li>
+          <b>&lt;, &gt;:</b>
+          <p>Ir para o começo e o fim do arquivo respectivamente</p>
+        </li>
+        <li>
+          <b>Return:</b>
+          <p>Move para o endereõ especificado (em hexadecimal)</p>
+        </li>
+        <li>
+          <b>Ctrl-Z:</b>
+          <p>Suspender</p>
+        </li>
+        <li>
+          <b>Ctrl-X:</b>
+          <p>Salvar e sair</p>
+        </li>
+        <li>
+          <b>Ctrl-U:</b>
+          <p>Desfazer todas as alterações</p>
+        </li>
+        <li>
+          <b>Crtl-S:</b>
+          <p>
+            Procurar por expressão à partir de onde o cursor está até o fim do
+            arquivo
+          </p>
+        </li>
+        <li>
+          <b>Ctrl-R:</b>
+          <p>
+            Procurar por expressão do inicio do arquivo até onde o cursor está
+          </p>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

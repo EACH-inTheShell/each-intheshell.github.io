@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto+Mono"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="icon" href="/favicon.png" />
+    <title>[E]ACH inTheShell_</title>
+  </head>
+  <body>
+    <header>
+      <div class="nav-container">
+        <nav>
+          <div class="logo">
+            <b><a href="/" style="font-size: xx-large">inTheShell_</a></b>
+          </div>
+          <div class="nav-bar">
+            <a href="/writeups">Write‑ups</a><a href="/wiki">Enciclopédia</a
+            ><a href="/atividades">Atividades</a><a href="/membros">Membros</a
+            ><a href="/sobre">Sobre</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <div class="subtitle">
+      <h1>
+        <a href="/wiki/forense">&larr; <a href="">steghide</a></a>
+      </h1>
+      <sub>ferramenta (linux, mac, windows)</sub>
+    </div>
+    <h4 class="subtitle" id="descricao">Descrição:</h4>
+    <div class="container">
+      <p>
+        <code>Steghide</code> é uma programa de que consegue esconder e
+        recuperar informação dentro de imagens e arquivos de áudio.
+      </p>
+      <p>
+        Gambiarra para rodar steghide no macOS X
+        <a
+          href="https://gist.github.com/cedriczirtacic/f6e4c200a91dbf4840dde15fda35eff9"
+          >AQUI&nearr;</a
+        >.
+      </p>
+    </div>
+    <h4 class="subtitle" id="info">Informação:</h4>
+    <div class="container">
+      <p><code> steghide info [-p] &lt;arquivo&gt;</code></p>
+      <ul>
+        <li>
+          <b>-p &lt;senha&gt;</b> (funciona nos 3 modos): senha que foi usara
+          para embutir o arquivo.
+        </li>
+      </ul>
+      <p>Ver informações (metadados) sobre o arquivo embutido.</p>
+    </div>
+    <h4 class="subtitle" id="extração">Extração:</h4>
+    <div class="container">
+      <p>
+        <code
+          >steghide extract -sf &lt;arquivo1&gt; -xf &lt;arquivo2&gt; -p
+          &lt;senha&gt;</code
+        >
+      </p>
+      &#x9;O &quot;<code>arquivo1</code>&quot; é o arquivo que contém o arquivo
+      embutido e o &quot;<code>arquivo2</code>&quot; é o arquivo que vai ser
+      extraído.
+      <ul>
+        <li>
+          <b>-sf/--stegofile &lt;arquivo&gt;</b>: recebe o arquivo que tem a
+          informação imbutida.
+        </li>
+        <li>
+          <b>-xf/--extractfile &lt;arquivo&gt;</b>: recebe o nome arquivo que
+          vai ser criado após a extração.
+        </li>
+      </ul>
+    </div>
+    <h4 class="subtitle" id="embutir">Embutir:</h4>
+    <div class="container">
+      <p>
+        <code>
+          steghide embed -ef &lt;arquivo1&gt; -cf &lt;arquivo2&gt; -p
+          &lt;senha&gt; [opções]</code
+        >
+      </p>
+      &#x9;O &quot;<code>arquivo1</code>&quot; fica embutido dentro do
+      &quot;<code>arquivo2</code>&quot;.
+      <h4 class="subtitle" id="opcoes">Opções:</h4>
+      <ul>
+        <li>
+          <b>-ef/--embedfile &lt;arquivo&gt;</b>: recebe como parâmetro o
+          arquivo que vai ser embutido.
+        </li>
+        <li>
+          <b>-cf/--coverfile &lt;arquivo&gt;</b>: recebe como parâmetro o
+          arquivo que vai ser usado para camuflagem. Arquivos suportados AU,
+          BMP, JPEG ou WAV, pode ser encontrado no
+          <a href="http://steghide.sourceforge.net/documentation/manual.pdf"
+            >site&nearr;</a
+          >.
+        </li>
+        <li>
+          <b>-sf/--stegofile &lt;arquivo&gt;</b>: recebe como parâmetro o nome
+          do arquivo embutido.
+        </li>
+        <li>
+          <b>-e/--encryption &lt;algoritmo&amp;gt &lt;modo&gt;</b>: recebe dois
+          parâmetros um algoritmo e um modo não importando a ordem em que vai
+          ser recebido. Para ver os tipos de suportados usar o comando
+          &quot;<code>steghide encinfo</code>&quot;, usar -e sem nada para não
+          encriptar. Por padrão é encriptado em <i>rujndael-128</i> (AES)
+          utilizando <i>cbc</i>
+        </li>
+        <li>
+          <b>-z/--compress &lt;1-9&gt;</b>: recebe como parâmetro um número de 1
+          a 9. Sendo 1 maior velocidade e 9 a melhor compressão.
+        </li>
+        <li><b>-Z/--dontcompress</b>: não comprime os dados</li>
+        <li>
+          <b>-K/--nochecksum</b>: ele não embuteCRC32. Coloque se não quiser que
+          ele gaste 32 bits a mais de memória ou já tem um <i>cheksum</i>.
+        </li>
+        <li>
+          <b>-N/--dontembeedname</b>: essa opção faz com que o não coloque o
+          nome dentro do arquivo.
+        </li>
+      </ul>
+    </div>
+    <h4 class="subtitle" id="exemplos">Exemplos:</h4>
+    <div class="container">
+      <p>Extrair:</p>
+      <p>
+        Um arquivo da imagem &quot;<code>fotosecreta.jpeg</code>&quot; para
+        &quot;<code>texto_super_secreto</code>&quot;.
+      </p>
+      <code class="tab block"
+        >steghide extract -sf fotosecreta.jpeg -xf texto_super_secreto</code
+      >
+      <p>Embutir:</p>
+      <p>
+        Um arquivo &quot;<code>senha_super_secreta</code>&quot; em
+        &quot;<code>sweater_weather.wav</code>&quot; com o nome
+        &quot;<code>senhazinha</code>&quot;.
+      </p>
+      <code class="tab block"
+        >steghide embed -ef senha_super_secreta -cf textosupersecreto -sf
+        senhazinha</code
+      >
+      <p>
+        Um arquivo &quot;<code>nudes.jpg</code>&quot; em
+        &quot;<code>garden.bmp</code>&quot; com criptografia rc2 no modo cbc
+      </p>
+      <code class="tab block"
+        >steghide embed -ef nudes.jpg -cf garden.bmp -e rc2 cbc</code
+      >
+    </div>
+  </body>
+</html>
