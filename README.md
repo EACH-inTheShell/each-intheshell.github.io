@@ -1,1 +1,0 @@
-# each-intheshell.github.io
